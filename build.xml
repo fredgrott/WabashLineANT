@@ -977,7 +977,7 @@
 
 
     <!-- jvmtest buildsystem stuff -->
-	<property name="jvm.out.test-classes.dir"
+	<!-- <property name="jvm.out.test-classes.dir"
 		value="${out.absolute.dir}/testClasses"/>
 	<property name="jvm.out.test-classes.absolute.dir"
 		value="${jvm.out.test-classes.dir}"/>
@@ -985,9 +985,9 @@
 	<property name="jvm.main.lib.dir"
 		location="../${ant.project.name}JVMTest/lib/main"/>
 	<property name="jvm.test.lib.dir"
-		location="../${ant.project.name}JVMTest/lib/test"/>
+		location="../${ant.project.name}JVMTest/lib/test"/> -->
 
-   <target name="compile-jvm-test-classes" depends="compile">
+  <!--  <target name="compile-jvm-test-classes" depends="compile">
 
    	<javac encoding="ascii" source="1.6" target="1.6" debug="true" extdirs=""
    	               destdir="${out.test-classes.absolute.dir}"
@@ -1001,7 +1001,7 @@
    	            </classpath>
    	        </javac>
 
-   </target>
+   </target> -->
 
 
 
@@ -1025,20 +1025,20 @@
 
 	</target>
 
-	<target name="debug-jvm">
+	<!-- <target name="debug-jvm">
 
 
 
 		<subant target="-run-jvm-tests">
 			<fileset dir="${basedir}" includes="build.xml"/>
 		</subant>
-	</target>
+	</target> -->
 
-	<target name="-run-jvm-tests" depends="compile-jvm-test-classes">
+	<!-- <target name="-run-jvm-tests" depends="compile-jvm-test-classes"> -->
 		<!-- setup of jvm testing using robolectric with undercover used
 		     for code coverage-->
 
-		<junit showoutput="true" failureproperty="junit.failure">
+		<!-- <junit showoutput="true" failureproperty="junit.failure">
 		            <formatter type="plain"/>
 		            <formatter type="xml"/>
 		            <batchtest todir="${docs.dir}">
@@ -1102,6 +1102,17 @@
 		                        <emmaxml output="${docs.dir}/jvm.emmaformat.coverage.xml" />
 
 		                </undercover-report>
+	</target>-->
+
+	<target name="jar-a-library" depends="compile">
+
+
+		<!-- jar the compiled classes -->
+		<jar
+		            destfile="build/${ant.project.name}.jar"
+		            basedir="build/classes"
+		        />
+
 	</target>
 
 	<target name="testme">
