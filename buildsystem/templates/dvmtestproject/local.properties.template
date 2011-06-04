@@ -1,0 +1,45 @@
+# local.properties file gets placed at project root
+# properties that have default blank values as
+# build switches are labeled
+# only system env type stuff goes here
+# for example proguard.cfg file location is
+# is defined in build.properties because its not
+# a system env based property whereas the
+# password and name of key to sign product with
+# is system env based and thus those properties
+# are set, here, in the local.properties file
+#
+# build switches are left default blank or set here
+# as it varies on dev setup and hence is system env
+# derived
+#
+# Unix uses /dirName/ syntaxes whereas
+# windows uses drivename:/dirName syntaxes
+# sdk dir location absolute path
+# android.platform.tools and the android.tools properties
+# in parent project are computed/assigned from the sdk.dir
+# property
+sdk.dir=C:/Google/Android/android-sdk
+# ndk.dir
+# this is the only build switch defined in local.properties as
+# its based on a system env location, default is empty hence
+# if property not defined build assumes that we do not execute
+# a ndk build
+ndk.dir=
+# graphviz executable path location
+# several codeqa reports ant tasks use graphviz dot features
+graphviz.executable.path=C:/tools/GraphViz2.26.3/bin/dot.exe
+# key.store location, keyalias name, and passwords
+key.store=C:/Users/FredGrott/.android
+key.alias=meetoo
+key.store.password=meetoo
+key.alias.password=meetoo
+# product version number to start with
+product.version=1.0.0
+# workspace folder location using the relative .. to get
+# a full path to the folder, need basedir="." defined in ant build.xml to work
+workspace.folder.dir.path=..
+tested.project.dir=../WabashLineANT
+company=MobileBytes
+javadoc.stylesheet=C:/Google/Android/android-sdk/docs/assets/android-developer-docs.css
+javadoc.linkoffline=http://d.android.com/reference C:/Google/Android/android-sdk/docs/reference

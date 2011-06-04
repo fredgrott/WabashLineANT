@@ -455,8 +455,19 @@
 	    </target>
 
 	    <!-- empty default pre-compile target. Create a similar target in
-	         your build.xml and it'll be called instead of this one. -->
-	    <target name="-pre-compile"/>
+	         your build.xml and it'll be called instead of this one.
+
+
+	         If you are using AndroidProjectLibraries than you must
+	         add a subant task for each library to trigger its compile
+	         target.
+	         -->
+	    <target name="-pre-compile">
+	    	<!-- increment the android version number -->
+
+
+	    	<!-- subant tasks to compile APL's go here-->
+	   </target>
 
 	    <!-- Compiles this project's .java files into .class files. -->
 	    <target name="compile" depends="-pre-build, -aidl, -renderscript, -resource-src, -pre-compile"
@@ -625,6 +636,9 @@
 
 	    <!-- Packages the application without signing it. -->
 	    <target name="-package-release" depends="-dex, -package-resources">
+	    	<!-- put bumpversion here that way its triggered
+	    	     only to increment version on release builds-->
+	    	<bumpversion bumpname="true"/>
 	        <package-helper
 	                output.filepath="${out.unsigned.file}"/>
 	    </target>
@@ -947,8 +961,7 @@
 	<taskdef name="yui-compressor"
 		         classname="net.noha.tools.ant.yuicompressor.tasks.YuiCompressorTask"
 			     classpathref="anttasklibs.path"/>
-	<taskdef resource="undercover-ant.properties"
-			     classpathref="anttasklibs.path" />
+
 	<taskdef name="doxygen"
 		         classname="org.doxygen.tools.DoxygenTask"
 		         classpathref="anttasklibs.path" />
@@ -1104,16 +1117,7 @@
 		                </undercover-report>
 	</target>-->
 
-	<target name="jar-a-library" depends="compile">
 
-
-		<!-- jar the compiled classes -->
-		<jar
-		            destfile="build/${ant.project.name}.jar"
-		            basedir="build/classes"
-		        />
-
-	</target>
 
 	<target name="testme">
 		<subant target="compile">

@@ -18,11 +18,20 @@
     public static int i(...);
 }
 
--assumenosideeffects class com.mobilebytes.andlog.CustomLogger {
+-assumenosideeffects class com.mobilebytes.mylog.CustomLogger {
     public static *** v(...);
     public static *** d(...);
     public static *** w(...);
     public static *** i(...);
+}
+
+-assumenosideeffects class com.google.code.microlog4android.Logger {
+    public *** *** debug(...);
+    public *** *** info(...);
+    public *** *** warn(...);
+    public *** *** error(...);
+    public *** *** fatal(...);
+    public *** *** trace(...);
 }
 
 

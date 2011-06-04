@@ -1,4 +1,6 @@
-package com.mobilebytes.wabashlineant;
+package com.fredgrott.wabashlineant;
+
+import com.mobilebytes.wabashlineant.R;
 
 import android.app.Activity;
 import android.os.Bundle;
