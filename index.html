@@ -1,79 +1,78 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset='utf-8'>
+---
+layout: pivotaltheme
+title: WabashLineANT
+---
 
-  <title>shareme/WabashLineANT @ GitHub</title>
+<h2>WabashLineANT</h2>
 
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #c077ee;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #3f8811; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #3f8811; }
-    h3 { text-align: center; color: #3f8811; }
-    a { color: #3f8811; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
-</head>
+<p>WabahsLineANT is a set of projects to act as the ant build script templates
+for android application development created by Fred Grott under the Apache License
+2.0. The useful ones are:
 
-<body>
-  <a href="http://github.com/shareme/WabashLineANT"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+<a href="https://github.com/shareme/WabashLineANT">WabashLineANT</a>
+<a href="https://github.com/shareme/WabashLineANTTest">WabashLineANTTest</a>
+<a href="https://github.com/shareme/WabashLineANTAPL">WabashLineANTAPL</a>
+<a href="https://github.com/shareme/WabashLineANTMonkeyRunner">WabashLineANTMonkeyRunner</a>
 
-  <div id="container">
+Project are structured according to the one folder on project Eclipse workspace
+approach.
+</p>
 
-    <div class="download">
-      <a href="http://github.com/shareme/WabashLineANT/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/shareme/WabashLineANT/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
+<h2>Installation</h2>
 
-    <h1><a href="http://github.com/shareme/WabashLineANT">WabashLineANT</a>
-      <span class="small">by <a href="http://github.com/shareme">shareme</a></span></h1>
+<p>Just mirror the structure you see, note ant task libs and other libs are stored
+in the application project but we still manage to use them from the other
+projects.</p>
 
-    <div class="description">
-      ant build tool for android app development
-    </div>
+<p>If you do use the AndroidProjectLibrary(WabashLineANTAPL) you need to mark
+the Parent Application Project in default.property file as using that library
+and you must set up the pre-compile target to subant launch the APL
+compile target from the APL's build.xml file.</p>
 
-    <h2>License</h2>
-<p>Apache License 2.0</p>
-<h2>Authors</h2>
-<p>Fred.Grott (fred.grott@gmail.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Fred Grott (fred.grott@gmail.com)<br/>      </p>
+<p>The proguard.pro file in the application project(android.pro) is set up
+to filter out  logging library methods of both MicroLog4android and mylog.
+If you have your own custom logger class and methods you need to
+add a filter to android.pro file for those methods(consult proguard docs for
+details).</p.>
 
+<p>Although the android.pro proguard file is set up to filter out
+3 logging libraries the application project is set up to not use
+the 3rd party ones which means if you want to use them you need to
+stick them in the libs folder. MicroLog4android also requires a
+configure file which you can stick in res/raw subdirectory.</p>
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/shareme/WabashLineANT/zipball/master">zip</a> or
-      <a href="http://github.com/shareme/WabashLineANT/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/shareme/WabashLineANT</pre>
-    </p>
+<p>MonkeyRunner: I launch monkeyrunner scripts from the shell but get
+code completion in Eclipse by setting up a jython interpreter and than
+ad monkeyrunner.jar as a library to that setup.</p>
 
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/shareme/WabashLineANT">shareme/WabashLineANT</a>
-    </div>
+<h2>Credit</h2>
 
-  </div>
+<p>Thanks goes to Google and OHA for the original ant-rules files included
+with the SDK along with the many android developers reporting bug corrections on
+those files.</p>
 
-  
-</body>
-</html>
+<h2>Feedback</h2>
+
+Fred Grott's site is at:
+
+<a href="http://shareme.github.com">shareme.github.com</a>
+
+Feedback project pages are on each project page:
+
+<a href="https://github.com/shareme/WabashLineANT/issues">WabashLineANT Project Issues</a>
+<a href="https://github.com/shareme/WabashLineANTTest/issues">WabashLineANTTest Project Issues</a>
+<a href="https://github.com/shareme/WabashLineANTAPL/issues">WabashLineANTAPL Project Issues</a>
+<a href="https://github.com/shareme/WabashLineANTMonkeyRunner/issues">WabashLineANTMonkeyRunner Issues</a>
+
+<h2>Left TO DO</h2>
+
+<p>Left to do is to add things such as obfuscation of js/css in webview
+style android application projects and NDK/native support.</p>
+
+<h2>Why no JVM Tests or Sikuli</h2>
+
+<p>IN Eclipse IDE's the git plugin does not allow linked virtual folders and
+since robolecric makes full use of such its un-usable with the Eclipse IDE
+and thus hence it not being used. At this time its more useful to
+have functional tests that can plug into the instrumental testing and
+thus hence the use of MonkeyRunner rather than Sikuli.</p>]
